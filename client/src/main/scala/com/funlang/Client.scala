@@ -14,11 +14,13 @@ object Client extends IOApp {
 
   def run(args: List[String]): IO[ExitCode] =
     for {
-      _          <- IO(out.println("Please enter your name: "))
-      name       <- IO(in.readLine())
-      response   <- serviceClient.use(c => c.SayHello(HelloRequest(name)))
+      _ <- IO(out.println("Please enter your name: "))
+      name <- IO(in.readLine())
+      response <- serviceClient.use(c => c.SayHello(HelloRequest(name)))
       serverMood = if (response.happy) "happy" else "unhappy"
-      _          <- IO(out.println(s"The $serverMood server says '${response.greeting}'"))
+      _ <- IO(
+        out.println(s"The $serverMood server says '${response.greeting}'")
+      )
     } yield ExitCode.Success
 
 }

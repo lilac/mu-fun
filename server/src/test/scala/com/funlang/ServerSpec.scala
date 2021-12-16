@@ -19,7 +19,7 @@ class ServerSpec extends AnyFlatSpec {
    * connected to each other via an in-memory channel.
    */
   val clientResource: Resource[IO, Greeter[IO]] = for {
-    sc        <- withServerChannel(Greeter.bindService[IO])
+    sc <- withServerChannel(Greeter.bindService[IO])
     clientRes <- Greeter.clientFromChannel[IO](IO.pure(sc.channel))
   } yield clientRes
 
