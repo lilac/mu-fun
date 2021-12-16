@@ -56,6 +56,10 @@ val server = project
       "org.slf4j" % "slf4j-nop" % "1.7.30",
       // For grpc reflection api
       "io.grpc" % "grpc-services" % "1.41.1",
+      // For UDS
+      "io.netty" % "netty-transport-native-epoll" % "4.1.52.Final",
+      "io.netty" % "netty-transport-native-kqueue" % "4.1.52.Final" classifier "osx-x86_64",
+      // Testing
       "org.scalatest" %% "scalatest" % "3.1.2" % Test,
       // Needed to build an in-memory server in the test
       "io.higherkindness" %% "mu-rpc-testing" % "0.27.2" % Test
