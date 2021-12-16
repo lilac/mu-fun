@@ -17,7 +17,7 @@ import io.netty.channel.kqueue.KQueueEventLoopGroup
 
 object Server extends IOApp {
 
-  implicit val greeter: Greeter[IO] = new HappyGreeter[IO]
+  implicit val greeter: Greeter[IO] = new HappyGreeter
 
   def linuxOS: Boolean =
     sys.props.get("os.name").exists(_.equalsIgnoreCase("linux"))

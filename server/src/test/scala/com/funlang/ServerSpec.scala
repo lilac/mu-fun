@@ -12,7 +12,7 @@ class ServerSpec extends AnyFlatSpec {
 
   import cats.effect.unsafe.implicits.global
 
-  implicit val greeter: Greeter[IO] = new HappyGreeter[IO]
+  implicit val greeter: Greeter[IO] = new HappyGreeter
 
   /*
    * A cats-effect Resource that builds a gRPC server and client

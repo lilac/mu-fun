@@ -3,10 +3,11 @@ package com.funlang
 import cats.Applicative
 import cats.syntax.applicative._
 import com.funlang.hello._
+import cats.effect._
 
-class HappyGreeter[F[_]: Applicative] extends Greeter[F] {
+class HappyGreeter extends Greeter[IO] {
 
-  def SayHello(req: HelloRequest): F[HelloResponse] =
-    HelloResponse(s"Hello, ${req.name}!", happy = true).pure[F]
+  def SayHello(req: HelloRequest): IO[HelloResponse] =
+    HelloResponse(s"Hello, ${req.name}!", happy = true).pure[IO]
 
 }
